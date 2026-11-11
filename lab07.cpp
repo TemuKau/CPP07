@@ -29,7 +29,9 @@ public:
       allocate(m, n);
     }
 
-  `Matrix(){release();}
+  `Matrix() {
+    release();
+  }
 
   void set(int i, int j, float value){
     values[i][j] = value;
@@ -37,8 +39,12 @@ public:
   float get(int i, int j){
     return values[i][j];
   }
-  int getRows(){return m;}
-  int getCols(){return n;}
+  int getRows() {
+    return m;
+  }
+  int getCols() {
+    return n;
+  }
 
   void print(char *title = ""){
     cout << title << endl;
