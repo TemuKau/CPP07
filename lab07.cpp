@@ -56,11 +56,21 @@ public:
   }
 
   Matrix operator+(float x){        //(a)
-    Matrix A(m, n);
+    Matrix R(m, n);
     for(int i = 0; i < m; i++)
       for(int j = 0; j < n; j++)
-        A.values[i][j] = values[i][j] + x;
-    return A;
+        R.values[i][j] = values[i][j] + x;
+    return R;
+  }
+
+  Matrix operator+(float x) const{
+    if(m != B.m || n != B.n)
+      cout << "Aldaa!" << endl;
+    Matrix R(m, n);
+    for(int i = 0; i < m; i++)
+      for(int j = 0; j < n; j++)
+        R.values[i][j] = values [i][j] + B.values[i][j];
+    return R;
   }
 };
 
