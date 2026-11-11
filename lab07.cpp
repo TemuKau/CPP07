@@ -55,7 +55,7 @@ public:
     }
   }
 
-  Matrix operator+(float x){        //(a)
+  Matrix operator+(float x){        //(1a)
     Matrix R(m, n);
     for(int i = 0; i < m; i++)
       for(int j = 0; j < n; j++)
@@ -63,13 +63,24 @@ public:
     return R;
   }
 
-  Matrix operator+(float x) const{
-    if(m != B.m || n != B.n)
+  Matrix operator+(float x) const{      //(1b)
+    if(m != A.m || n != A.n)
       cout << "Aldaa!" << endl;
     Matrix R(m, n);
     for(int i = 0; i < m; i++)
       for(int j = 0; j < n; j++)
-        R.values[i][j] = values [i][j] + B.values[i][j];
+        R.values[i][j] = values [i][j] + A.values[i][j];
+    return R;
+  }
+
+  Matrix operator*(const Matrix &) const{        //(2)
+    if(n != A.m)
+      cout << "Mur, baganii hemjee tentsuu bish" << endl;
+    Matrix R(m. A.n);
+    for(int i = 0; i < m; i++)
+      for(int j = 0; j < A.n; j++)
+        for(int k = 0; k < n; k++)
+          R.values[i][j] += values[i][k] * A.values[k][j];
     return R;
   }
 };
