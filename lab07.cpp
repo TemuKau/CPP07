@@ -42,10 +42,13 @@ public:
         }
     }
 
-    ~Matrix(){                      //Устгагч
-        for(int i = 0; i < m; i++)
+    ~Matrix(){    //Устгагч
+        if (values!=nullptr) {
+        for(int i = 0; i < m; i++){
             delete[] values[i];
+        }
         delete[] values;
+        }
     }
 
     //set функц
